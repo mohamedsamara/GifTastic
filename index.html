@@ -22,19 +22,19 @@
       <!-- Page Content -->
       <div class="container">
         <div class="row gallery-header">
-          <div class="col-lg-3 col-md-4 col-6">
+          <div class="col-lg-3 col-md-3 col-6">
             <h1 class="font-weight-light text-center text-lg-left">
               Gallery
             </h1>
           </div>
-          <div class="col-lg-9 col-md-4 col-6 text-right">
+          <div class="col-lg-9 col-md-9 col-6 text-right">
             <!-- Button trigger modal -->
             <button
               type="button"
               id="add"
-              class="btn btn-primary"
+              class="btn btn-secondary"
               data-toggle="modal"
-              data-target="#exampleModal"
+              data-target="#addArtModal"
             >
               Add Design & Art
             </button>
@@ -42,16 +42,16 @@
             <!-- Modal -->
             <div
               class="modal fade text-left"
-              id="exampleModal"
+              id="addArtModal"
               tabindex="-1"
               role="dialog"
-              aria-labelledby="exampleModalLabel"
+              aria-labelledby="artLabel"
               aria-hidden="true"
             >
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
+                    <h5 class="modal-title" id="artLabel">
                       Design & Art
                     </h5>
                     <button
@@ -64,13 +64,14 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form>
+                    <form id="addArt">
                       <div class="form-group">
                         <input
                           type="text"
                           class="form-control"
                           id="artInput"
                           placeholder="Enter art & design"
+                          required
                         />
                       </div>
                       <button type="submit" class="btn btn-primary">
@@ -83,6 +84,10 @@
             </div>
           </div>
         </div>
+
+        <hr class="mt-2 mb-5" />
+
+        <div class="row text-center text-lg-left art-desgin-tags"></div>
 
         <hr class="mt-2 mb-5" />
 
