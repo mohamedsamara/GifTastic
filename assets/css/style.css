@@ -1,42 +1,4 @@
-/* layout styles */
-html,
-body {
-  height: 100%;
-  margin: 0;
-}
-
-header {
-  width: 100%;
-  background-color: #cccccc3d;
-  color: #ccc;
-  padding: 10px 0px;
-  text-align: center;
-}
-
-main {
-  flex: 1;
-  overflow: auto;
-  background-color: #ccc;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: #f3f3f3;
-  color: #ccc;
-  padding: 10px 0px;
-}
-
-footer .copyright {
-  text-align: center;
-}
-
-.wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
+/* styles */
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -52,33 +14,6 @@ footer .copyright {
   background-color: #ccc;
 }
 
-img {
-  width: 100%;
+.gallery-header {
+  align-items: center;
 }
-
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-/* layout styles */
-
-/* Start Responsive Styles*/
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
-/* End Responsive Styles*/
