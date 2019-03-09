@@ -14,10 +14,10 @@
   background-color: #ccc;
 }
 
-.gallery-header {
-  align-items: center;
-}
-
 .art-desgin-tags .tag-box {
   margin: 10px 0px;
+}
+
+.gif {
+  cursor: pointer;
 }

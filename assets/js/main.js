@@ -37,7 +37,7 @@ $(document).ready(function() {
   // render button tags
   $.each(options, function(i, value) {
     $('.art-desgin-tags').append(
-      '<div class="col-lg-2 col-md-3 col-6 tag-box text-center"><button type="button" id="' +
+      '<div class="col-lg-2 col-md-3 col-6 tag-box text-center"><button type="button" data-name="' +
         value.value +
         '" class="btn btn-primary btn-block tag">' +
         value.value +
@@ -49,11 +49,13 @@ $(document).ready(function() {
   // render button tag when adding tags
   $('#addArt').on('submit', function(e) {
     e.preventDefault();
-    var artQuery = $('#artInput').val();
+    var artQuery = $('#artInput')
+      .val()
+      .trim();
     $('#addArtModal').modal('toggle');
 
     $('.art-desgin-tags').append(
-      '<div class="col-lg-2 col-md-3 col-6 tag-box text-center"><button type="button" id="' +
+      '<div class="col-lg-2 col-md-3 col-6 tag-box text-center"><button type="button" data-name="' +
         artQuery +
         '" class="btn btn-primary btn-block tag">' +
         artQuery +
@@ -68,11 +70,11 @@ $(document).ready(function() {
   $(document).on('click', '.tag', function(e) {
     $('.gallery').empty();
 
-    var id = $(this).attr('id');
+    var dataName = $(this).attr('data-name');
 
     var queryURL =
       'http://api.giphy.com/v1/gifs/search?q=' +
-      id +
+      dataName +
       '+art&design&api_key=ZhrVs1bOcGeNlrsYqdBK1z3G9kt83xc7';
 
     $.ajax({
@@ -81,14 +83,32 @@ $(document).ready(function() {
     }).then(function(response) {
       $.each(response.data, function(i, value) {
         $('.gallery').append(
-          '<div class="col-lg-3 col-md-4 col-6"><a href="#" class="d-block mb-4 h-100"><img class="img-fluid img-thumbnail" src="' +
-            value.images.downsized_large.url +
+          '<div class="col-lg-3 col-md-4 col-6"><img class="img-fluid img-thumbnail gif" src="' +
+            value.images.fixed_height_still.url +
             '" alt="' +
             value.title +
-            '"/></a>' +
+            '" data-still="' +
+            value.images.fixed_height_still.url +
+            '" data-state="still" data-animate="' +
+            value.images.fixed_height.url +
+            '" data-animate="' +
+            value.images.fixed_height.url +
+            '" "/>' +
             '</div>'
         );
       });
     });
+  });
+
+  // animating gifs n click
+  $(document).on('click', '.gif', function() {
+    var state = $(this).attr('data-state');
+    if (state == 'still') {
+      $(this).attr('src', $(this).data('animate'));
+      $(this).attr('data-state', 'animate');
+    } else {
+      $(this).attr('src', $(this).data('still'));
+      $(this).attr('data-state', 'still');
+    }
   });
 });
