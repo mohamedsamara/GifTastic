@@ -73,7 +73,7 @@ $(document).ready(function() {
     var dataName = $(this).attr('data-name');
 
     var queryURL =
-      'http://api.giphy.com/v1/gifs/search?q=' +
+      'https://api.giphy.com/v1/gifs/search?q=' +
       dataName +
       '+art&design&api_key=ZhrVs1bOcGeNlrsYqdBK1z3G9kt83xc7';
 
