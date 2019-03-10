@@ -10,4 +10,6 @@ Dynamic web page that populates with gifs, gifs are loaded depend on the user's 
 
 - [Ajax](http://api.jquery.com/jquery.ajax/)
 
+- [Bootstrap](https://getbootstrap.com/)
+
 - [GIPHY API](https://developers.giphy.com/)
